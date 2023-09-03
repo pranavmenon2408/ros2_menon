@@ -30,6 +30,7 @@ setup(
                   'fibonacci_action_client=py_pubsub.fibonacci_action_client:main',
                   'static_turtle_tf2_broadcaster = py_pubsub.static_turtle_tf2_broadcaster:main',
                   'turtle_tf2_broadcaster=py_pubsub.turtle_tf2_broadcaster:main',
+                  'turtle_tf2_listener=py_pubsub.turtle_tf2_listener:main',
         ],
     },
 )
