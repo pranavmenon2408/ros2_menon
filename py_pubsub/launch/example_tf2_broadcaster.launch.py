@@ -33,4 +33,11 @@ def generate_launch_description():
             name='listener',
             parameters=[{'target_frame':LaunchConfiguration('target_frame')}]
         ),
+        Node(
+            package='py_pubsub',
+            executable='turtle_killer',
+            name='turtle_killer'
+        ),
+        
+        
     ])

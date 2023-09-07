@@ -31,6 +31,9 @@ setup(
                   'static_turtle_tf2_broadcaster = py_pubsub.static_turtle_tf2_broadcaster:main',
                   'turtle_tf2_broadcaster=py_pubsub.turtle_tf2_broadcaster:main',
                   'turtle_tf2_listener=py_pubsub.turtle_tf2_listener:main',
+                  'dynamic_frame_broadcaster=py_pubsub.dynamic_frame_broadcaster:main',
+                  'turtle_killer=py_pubsub.turtle_killer:main',
+                  'turtle_spawner=py_pubsub.turtle_spawner:main',
         ],
     },
 )
