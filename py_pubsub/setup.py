@@ -34,6 +34,7 @@ setup(
                   'dynamic_frame_broadcaster=py_pubsub.dynamic_frame_broadcaster:main',
                   'turtle_killer=py_pubsub.turtle_killer:main',
                   'turtle_spawner=py_pubsub.turtle_spawner:main',
+                  'snowman=py_pubsub.snowman_maker:main',
         ],
     },
 )
