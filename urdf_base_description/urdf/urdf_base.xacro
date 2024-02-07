@@ -1,0 +1,426 @@
+<?xml version="1.0" ?>
+<robot name="urdf_base" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find urdf_base_description)/urdf/materials.xacro" />
+<xacro:include filename="$(find urdf_base_description)/urdf/urdf_base.trans" />
+<xacro:include filename="$(find urdf_base_description)/urdf/urdf_base.gazebo" />
+<link name="base_footprint">
+  
+</link>
+<link name="base_link">
+  <inertial>
+    <origin xyz="-0.3694098126634616 -0.30118096192413374 0.19692457662762536" rpy="0 0 0"/>
+    <mass value="19.185824620104434"/>
+    <inertia ixx="1.844906" iyy="1.663084" izz="1.439572" ixy="0.0" iyz="-0.192956" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find urdf_base_description)/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find urdf_base_description)/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="footprint_link_joint" type="fixed">
+  <origin xyz="0 0 0" rpy="0 0 0"/>
+  <parent link="base_footprint"/>
+  <child link="base_link"/>
+  <axis xyz="0 0 0"/>
+</joint>
+
+<link name="wheel_1_1">
+  <inertial>
+    <origin xyz="0.013000187336528163 3.3163871071550943e-07 4.379836845702645e-07" rpy="0 0 0"/>
+    <mass value="1.6029976514941926"/>
+    <inertia ixx="0.002004" iyy="0.001092" izz="0.001092" ixy="0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.18941 0.509146 -0.056794" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find urdf_base_description)/meshes/wheel_1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.18941 0.509146 -0.056794" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find urdf_base_description)/meshes/wheel_1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="wheel_2_1">
+  <inertial>
+    <origin xyz="0.013000187336532881 3.3163871146491e-07 4.379836929663261e-07" rpy="0 0 0"/>
+    <mass value="1.6029976514941917"/>
+    <inertia ixx="0.002004" iyy="0.001092" izz="0.001092" ixy="-0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.18941 0.129146 -0.056794" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find urdf_base_description)/meshes/wheel_2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.18941 0.129146 -0.056794" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find urdf_base_description)/meshes/wheel_2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="wheel_4_1">
+  <inertial>
+    <origin xyz="-0.012999812663476495 3.316387161000911e-07 4.379836937781767e-07" rpy="0 0 0"/>
+    <mass value="1.6029976514941915"/>
+    <inertia ixx="0.002004" iyy="0.001092" izz="0.001092" ixy="0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.54941 0.129146 -0.056794" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find urdf_base_description)/meshes/wheel_4_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.54941 0.129146 -0.056794" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find urdf_base_description)/meshes/wheel_4_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="wheel_3_1">
+  <inertial>
+    <origin xyz="-0.012999812663473054 3.316387148233346e-07 4.379836854931374e-07" rpy="0 0 0"/>
+    <mass value="1.6029976514941926"/>
+    <inertia ixx="0.002004" iyy="0.001092" izz="0.001092" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.54941 0.509146 -0.056794" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find urdf_base_description)/meshes/wheel_3_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.54941 0.509146 -0.056794" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find urdf_base_description)/meshes/wheel_3_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="camera">
+    <inertial>
+            <mass value="0.1" />
+            <inertia ixx="0.01" ixy="0.0" ixz="0"
+            iyy="0.01" iyz="0" izz="0.01" />
+    </inertial>
+
+    <visual>          
+      <geometry>
+        <box size="0.05 0.05 0.025"/>
+      </geometry>
+      <material name="white">
+        <color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+
+    <collision>
+      <geometry>
+          <box size="0.05 0.05 0.025"/>
+      </geometry>
+    </collision>
+</link>
+
+<link name="lidar">
+    <inertial>
+            <mass value="0.5" />
+            <inertia ixx="0.01" ixy="0.0" ixz="0"
+            iyy="0.01" iyz="0" izz="0.01" />
+    </inertial>
+
+    <visual>          
+      <geometry>
+        <cylinder radius="0.025" length="0.015"/>
+      </geometry>
+      <material name="white">
+        <color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+
+    <collision>
+      <geometry>
+          <box size="0.1 0.1 0.1"/>
+      </geometry>
+    </collision>
+</link>
+
+<link name="imu_link">
+    <inertial>
+      <mass value="0.3"/>
+      <inertia ixx="0.01" ixy="0.0" ixz="0"
+          iyy="0.01" iyz="0" izz="0.01" />
+    </inertial>
+    <visual>
+      <geometry>
+        <box size="0.05 0.05 0.05"/>
+      </geometry>
+      <material name="white">
+        <color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+    <collision>
+      <geometry>
+          <box size="0.01 0.01 0.005"/>
+      </geometry>
+    </collision>
+  
+</link>
+    
+
+
+
+
+<joint name="Revolute 13" type="continuous">
+  <origin xyz="-0.18941 -0.509146 0.056794" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="wheel_1_1"/>
+  <axis xyz="1.0 -0.0 0.0"/>
+</joint>
+
+<joint name="Revolute 14" type="continuous">
+  <origin xyz="-0.18941 -0.129146 0.056794" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="wheel_2_1"/>
+  <axis xyz="1.0 -0.0 0.0"/>
+</joint>
+
+<joint name="Revolute 15" type="continuous">
+  <origin xyz="-0.54941 -0.129146 0.056794" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="wheel_4_1"/>
+  <axis xyz="1.0 -0.0 0.0"/>
+</joint>
+
+<joint name="Revolute 16" type="continuous">
+  <origin xyz="-0.54941 -0.509146 0.056794" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="wheel_3_1"/>
+  <axis xyz="1.0 0.0 -0.0"/>
+</joint>
+
+<joint name="camera_joint" type="fixed">
+    <origin xyz="-0.35 -0.616 0.54" rpy="0 0.0 4.71"/>
+    <parent link="base_link"/>
+    <child link="camera"/>
+    <axis xyz="0.0 0.0 1.0"/>    
+</joint>
+
+<joint name="lidar_joint" type="fixed">
+  <origin xyz="-0.385 -0.61 0.080" rpy="0 0.0 3.14"/>
+  <parent link="base_link"/>
+  <child link="lidar"/>
+  <axis xyz="0.0 0.0 1.0"/>
+</joint>
+
+<joint name="imu_joint" type="fixed">
+  <origin xyz="-0.33 -0.31 0.08"/>
+  <parent link="base_link"/>
+  <child link="imu_link"/>
+  <axis xyz="0.0 0.0 1.0"/>
+  
+  
+</joint>
+
+<gazebo reference="lidar">
+    <material>Gazebo/Blue</material>
+</gazebo>
+
+<gazebo reference="camera">
+    <material>Gazebo/Red</material>
+</gazebo>
+
+
+
+
+<gazebo reference="camera">
+  <sensor type="camera" name="camera1">
+    <visualize>true</visualize>
+    <update_rate>30.0</update_rate>
+    <camera name="head">
+      <horizontal_fov>1.3962634</horizontal_fov>
+      <image>
+        <width>800</width>
+        <height>800</height>
+        <format>R8G8B8</format>
+      </image>
+      <clip>
+        <near>0.02</near>
+        <far>300</far>
+      </clip>
+    </camera>
+    <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
+      <alwaysOn>true</alwaysOn>
+      <updateRate>60.0</updateRate>
+      <cameraName>/camera1</cameraName>
+      <imageTopicName>image_raw</imageTopicName>
+      <cameraInfoTopicName>info_camera</cameraInfoTopicName>
+      <frameName>camera</frameName>
+      <hackBaseline>0.07</hackBaseline>
+    </plugin>
+  </sensor>
+</gazebo>
+
+<gazebo reference="lidar">
+  <sensor name="lidar" type="ray">
+    <visualize>true</visualize>
+    <update_rate>12.0</update_rate>
+    <plugin filename="libgazebo_ros_ray_sensor.so" name="gazebo_lidar">    
+      <output_type>sensor_msgs/LaserScan</output_type>
+      <frame_name>lidar</frame_name>
+    </plugin>
+    <ray>
+      <scan>
+        <horizontal>
+          <samples>360</samples>
+          <resolution>1</resolution>
+          <min_angle>0.00</min_angle>
+          <max_angle>3.14</max_angle>
+        </horizontal>
+      </scan>
+      <range>
+        <min>0.120</min>
+        <max>3.5</max>
+        <resolution>0.015</resolution>
+      </range>
+    </ray>
+  </sensor>
+</gazebo>
+<gazebo>
+    <plugin name="wheel_drive_controller" filename="libgazebo_ros_diff_drive.so">
+        <!-- wheels -->
+        <num_wheel_pairs>2</num_wheel_pairs>
+        <left_joint>Revolute 13</left_joint>
+        <left_joint>Revolute 14</left_joint>
+        <right_joint>Revolute 16</right_joint>
+        <right_joint>Revolute 15</right_joint>
+
+        <!-- kinematics -->
+        <wheel_separation>0.4</wheel_separation>
+        <wheel_diameter>0.1</wheel_diameter>
+
+
+
+        <!-- Limits -->
+        <max_wheel_torque>200.0</max_wheel_torque>
+        <max_wheel_acceleration>10.0</max_wheel_acceleration>
+
+        <!-- Output -->
+        <odometry_frame>odom</odometry_frame>
+        <robot_base_frame>base_link</robot_base_frame>
+
+        <!-- topic & re remappings -->
+        <!-- <ros>
+            <namespace>/</namespace>
+            <argument>/cmd_vel:=cmd_vel</argument>
+            <argument>/odom:=odom</argument>
+        </ros> -->
+
+        <publish_odom>true</publish_odom>
+        <publish_odom_tf>true</publish_odom_tf>
+        <update_rate>30.0</update_rate>
+    </plugin>
+</gazebo>
+
+
+
+<gazebo reference="imu_link">
+  <gravity>true</gravity>
+  <sensor name="imu_sensor" type="imu">
+  <!-- <imu>
+      <angular_velocity>
+        <x>
+          <noise type="gaussian">
+            <mean>0.0</mean>
+            <stddev>2e-4</stddev>
+            <bias_mean>0.0000075</bias_mean>
+            <bias_stddev>0.0000008</bias_stddev>
+          </noise>
+        </x>
+        <y>
+          <noise type="gaussian">
+            <mean>0.0</mean>
+            <stddev>2e-4</stddev>
+            <bias_mean>0.0000075</bias_mean>
+            <bias_stddev>0.0000008</bias_stddev>
+          </noise>
+        </y>
+        <z>
+          <noise type="gaussian">
+            <mean>0.0</mean>
+            <stddev>2e-4</stddev>
+            <bias_mean>0.0000075</bias_mean>
+            <bias_stddev>0.0000008</bias_stddev>
+          </noise>
+        </z>
+      </angular_velocity>
+      <linear_acceleration>
+        <x>
+          <noise type="gaussian">
+            <mean>0.0</mean>
+            <stddev>1.7e-2</stddev>
+            <bias_mean>0.1</bias_mean>
+            <bias_stddev>0.001</bias_stddev>
+          </noise>
+        </x>
+        <y>
+          <noise type="gaussian">
+            <mean>0.0</mean>
+            <stddev>1.7e-2</stddev>
+            <bias_mean>0.1</bias_mean>
+            <bias_stddev>0.001</bias_stddev>
+          </noise>
+        </y>
+        <z>
+          <noise type="gaussian">
+            <mean>0.0</mean>
+            <stddev>1.7e-2</stddev>
+            <bias_mean>0.1</bias_mean>
+            <bias_stddev>0.001</bias_stddev>
+          </noise>
+        </z>
+      </linear_acceleration>
+    </imu> -->
+    <always_on>true</always_on>
+    <update_rate>100</update_rate>
+    <visualize>true</visualize>
+    <topic>imu</topic>
+    <plugin filename="libgazebo_ros_imu_sensor.so" name="imu_plugin">
+      <topicName>imu</topicName>
+      <bodyName>imu_link</bodyName>
+      <updateRateHZ>10.0</updateRateHZ>
+      <gaussianNoise>0.0</gaussianNoise>
+      <xyzOffset>0 0 0</xyzOffset>
+      <rpyOffset>0 0 0</rpyOffset>
+      <frameName>imu_link</frameName>
+      <initial_orientation_as_reference>true</initial_orientation_as_reference>
+    </plugin>
+    <pose>0 0 0 0 0 0</pose>
+  </sensor>
+</gazebo>
+
+
+
+
+
+</robot>

@@ -1,0 +1,213 @@
+<?xml version="1.0" ?>
+<robot name="urdf_base">
+
+<link name="base_footprint">
+  
+</link>
+
+  
+
+<link name="base_link">
+  <inertial>
+    <origin xyz="0.05 0 0.10" rpy="0 0 0"/>
+    <mass value="19"/>
+    <inertia ixx="0.01" iyy="0.01" izz="0.01" ixy="0" iyz="0" ixz="0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 -0.15" rpy="0 -1.57 0"/>
+    <geometry>
+      <mesh filename="package://urdf_base_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver">
+      <color rgba="0.700 0.700 0.700 1.000"/>
+    </material>
+
+  </visual>
+  <collision>
+    <origin xyz="0 0 -0.15" rpy="0 -1.57 0"/>
+    <geometry>
+      <mesh filename="package://urdf_base_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="fr_wheel_link">
+  <inertial>
+    <origin xyz="0 0 0.10" rpy="0 0 0"/>
+    <mass value="0.5"/>
+    <inertia ixx="0.01" iyy="0.01" izz="0.01" ixy="0" iyz="0" ixz="0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.02 0 -0.1" rpy="0 -1.57 0"/>
+    <geometry>
+      <mesh filename="package://urdf_base_description/meshes/wheel_1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    
+
+  </visual>
+  <collision>
+    <origin xyz="-0.02 0 -0.1" rpy="0 -1.57 0"/>
+    <geometry>
+      <mesh filename="package://urdf_base_description/meshes/wheel_1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="fl_wheel_link">
+  <inertial>
+    <origin xyz="0 0 0.10" rpy="0 0 0"/>
+    <mass value="0.5"/>
+    <inertia ixx="0.01" iyy="0.01" izz="0.01" ixy="0" iyz="0" ixz="0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.05 0.001 -0.12" rpy="0 -1.57 0"/>
+    <geometry>
+      <mesh filename="package://urdf_base_description/meshes/wheel_2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    
+
+  </visual>
+  <collision>
+    <origin xyz="-0.05 0.001 -0.12" rpy="0 -1.57 0"/>
+    <geometry>
+      <mesh filename="package://urdf_base_description/meshes/wheel_2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="bl_wheel_link">
+  <inertial>
+    <origin xyz="0 0 0.10" rpy="0 0 0"/>
+    <mass value="0.5"/>
+    <inertia ixx="0.01" iyy="0.01" izz="0.01" ixy="0" iyz="0" ixz="0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.01 0.005 -0.105" rpy="0 -1.57 0"/>
+    <geometry>
+      <mesh filename="package://urdf_base_description/meshes/wheel_3_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    
+
+  </visual>
+  <collision>
+    <origin xyz="-0.01 0.005 -0.105" rpy="0 -1.57 0"/>
+    <geometry>
+      <mesh filename="package://urdf_base_description/meshes/wheel_3_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="br_wheel_link">
+  <inertial>
+    <origin xyz="0 0 0.10" rpy="0 0 0"/>
+    <mass value="0.5"/>
+    <inertia ixx="0.01" iyy="0.01" izz="0.01" ixy="0" iyz="0" ixz="0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.05 0.002 -0.12" rpy="0 -1.57 0"/>
+    <geometry>
+      <mesh filename="package://urdf_base_description/meshes/wheel_4_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    
+
+  </visual>
+  <collision>
+    <origin xyz="-0.05 0.002 -0.12" rpy="0 -1.57 0"/>
+    <geometry>
+      <mesh filename="package://urdf_base_description/meshes/wheel_4_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="footprint_joint" type="fixed">
+  <origin xyz="0 0 0" rpy="0.0 0.0 0.0"/>
+  <parent link="base_footprint"/>
+  <child link="base_link"/>
+  <axis xyz="0.0 0.0 0.0"/>
+</joint>
+
+<joint name="fl_joint" type="continuous">
+  <origin xyz="0.04 0 0.01" rpy="0.0 0.0 0.0"/>
+  <parent link="base_link"/>
+  <child link="fl_wheel_link"/>
+  <axis xyz="0.0 0.0 1.0"/>
+</joint>
+
+<joint name="fr_joint" type="continuous">
+  <origin xyz="0.04 0 -0.01" rpy="0.0 0.0 0.0"/>
+  <parent link="base_link"/>
+  <child link="fr_wheel_link"/>
+  <axis xyz="0.0 0.0 1.0"/>
+</joint>
+
+<joint name="bl_joint" type="continuous">
+  <origin xyz="0.04 0 -0.01" rpy="0.0 0.0 0.0"/>
+  <parent link="base_link"/>
+  <child link="bl_wheel_link"/>
+  <axis xyz="0.0 0.0 1.0"/>
+</joint>
+
+<joint name="br_joint" type="continuous">
+  <origin xyz="0.04 0 0.01" rpy="0.0 0.0 0.0"/>
+  <parent link="base_link"/>
+  <child link="br_wheel_link"/>
+  <axis xyz="0.0 0.0 1.0"/>
+</joint>
+
+
+<gazebo>
+  <plugin name='skid_steer_drive' filename='libgazebo_ros_diff_drive.so'>
+
+        <ros>
+          <namespace>/demo</namespace>
+          <argument>cmd_vel:=cmd_demo</argument>
+          <argument>odom:=odom_demo</argument>
+        </ros>
+
+        <!-- Number of wheel pairs -->
+        <num_wheel_pairs>2</num_wheel_pairs>
+        
+        <!-- wheels0 -->
+        <left_joint>fl_joint</left_joint>
+        <right_joint>fr_joint</right_joint>
+
+        <!-- wheels1-->
+        <left_joint>bl_joint</left_joint>
+        <right_joint>br_joint</right_joint>
+
+        <!-- kinematics -->
+        <wheel_separation>0.5</wheel_separation>
+        <wheel_separation>0.5</wheel_separation>
+
+        <wheel_diameter>0.1</wheel_diameter>
+        <wheel_diameter>0.1</wheel_diameter>
+
+        <!-- limits -->
+        <max_wheel_torque>20</max_wheel_torque>
+        <max_wheel_acceleration>1.0</max_wheel_acceleration>
+
+        <!-- output -->
+        <publish_odom>true</publish_odom>
+        <publish_odom_tf>true</publish_odom_tf>
+        <publish_wheel_tf>true</publish_wheel_tf>
+
+        <odometry_frame>odom_demo</odometry_frame>
+        <robot_base_frame>base_link</robot_base_frame>
+
+  </plugin>
+</gazebo>
+<!-- <gazebo>
+  <plugin name="control" filename="libgazebo_ros_control.so"/>
+</gazebo> -->
+<gazebo reference="base_link">
+  <material name="silver">
+    <color rgba="0.700 0.700 0.700 1.000"/>
+  </material>
+
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <self_collide>true</self_collide>
+  <gravity>true</gravity>
+</gazebo>
+
+</robot>
