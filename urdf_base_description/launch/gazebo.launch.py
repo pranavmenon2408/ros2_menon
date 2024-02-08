@@ -1,9 +1,9 @@
 from launch_ros.actions import Node
 from launch_ros.substitutions import FindPackageShare
 from launch import LaunchDescription
-from launch.actions import IncludeLaunchDescription,ExecuteProcess
+from launch.actions import IncludeLaunchDescription,ExecuteProcess,DeclareLaunchArgument
 from launch.launch_description_sources import PythonLaunchDescriptionSource
-from launch.substitutions import PathJoinSubstitution
+from launch.substitutions import PathJoinSubstitution,LaunchConfiguration
 import os
 import xacro
 from ament_index_python.packages import get_package_share_directory
@@ -17,6 +17,12 @@ def generate_launch_description():
     robot_urdf = robot_description_config.toxml()
 
     robot_localization_file_path = os.path.join(share_dir, 'config','ekf.yaml') 
+    # use_sim_time = LaunchConfiguration('use_sim_time')
+
+    # declare_use_sim_time_cmd = DeclareLaunchArgument(
+    # name='use_sim_time',
+    # default_value='True',
+    # description='Use simulation (Gazebo) clock if true')
 
     robot_state_publisher_node = Node(
         package='robot_state_publisher',
@@ -77,11 +83,12 @@ def generate_launch_description():
     name='ekf_filter_node',
     output='screen',
     parameters=[robot_localization_file_path, 
-    {'use_sim_time': True}])
+    {'use_sim_time': False}])
 
     return LaunchDescription([
         robot_state_publisher_node,
         joint_state_publisher_node,
+        
         gazebo_server,
         urdf_spawn_node,
         start_robot_localization_cmd,
