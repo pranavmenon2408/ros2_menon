@@ -1,22 +1,35 @@
-from geometry_msgs.msg import Twist
 import rclpy
 from rclpy.node import Node
-
-class Movement(Node):
+from sensor_msgs.msg import Image
+from cv_bridge import CvBridge
+import cv2
+class ImageSubscriber(Node):
     def __init__(self):
-        super().__init__('testing_ekf_node')
-        self.pub=self.create_publisher(Twist,'/cmd_vel',10)
-        self.timer=self.create_timer(0.1,self.timer_callback)
-    def timer_callback(self):
-        msg=Twist()
-        msg.angular.z=-2.0
-        #msg.linear.x=0.5
-        self.pub.publish(msg)
+        super().__init__('image_subscriber')
+        self.bridge = CvBridge()
+        self.subscription = self.create_subscription(
+            Image,
+            'camera1/image_raw',
+            self.image_callback,
+            10
+        )
+        self.subscription  # prevent unused variable warning
+
+    def image_callback(self, msg):
+        cv_image = self.bridge.imgmsg_to_cv2(msg, 'bgr8')
+        # Process the image here
+        cv2.imshow('image', cv_image)
+        edge = cv2.Canny(cv_image, 100, 200)
+        cv2.imshow('edge', edge)
+        if cv2.waitKey(1) & 0xFF == ord('q'):
+            pass
+
 def main(args=None):
     rclpy.init(args=args)
-    move=Movement()
-    rclpy.spin(move)
-    move.destroy_node()
+    subscriber = ImageSubscriber()
+    rclpy.spin(subscriber)
     rclpy.shutdown()
-if __name__=="__main__":
+
+if __name__ == '__main__':
     main()
+
