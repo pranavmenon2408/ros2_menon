@@ -21,6 +21,7 @@ class ImageSubscriber(Node):
         cv2.imshow('image', cv_image)
         edge = cv2.Canny(cv_image, 100, 200)
         cv2.imshow('edge', edge)
+        self.get_logger().info('Received a server cam image')
         if cv2.waitKey(1) & 0xFF == ord('q'):
             pass
 
