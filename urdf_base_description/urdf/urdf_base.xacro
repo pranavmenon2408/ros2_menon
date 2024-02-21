@@ -282,21 +282,27 @@
 </gazebo>
 
 <gazebo reference="lidar">
-  <sensor name="lidar" type="ray">
+  <sensor name="lidar" type="gpu_ray">
     <visualize>true</visualize>
     <update_rate>2.0</update_rate>
-    <plugin filename="libgazebo_ros_ray_sensor.so" name="gazebo_lidar">    
-      <output_type>sensor_msgs/LaserScan</output_type>
+    <plugin filename="libgazebo_ros_ray_sensor.so" name="scan">    
+      <output_type>sensor_msgs/PointCloud2</output_type>
       <frame_name>lidar</frame_name>
     </plugin>
     <ray>
       <scan>
         <horizontal>
-          <samples>120</samples>
+          <samples>150</samples>
           <resolution>1</resolution>
           <min_angle>-3.14</min_angle>
           <max_angle>3.14</max_angle>
         </horizontal>
+        <vertical>
+          <samples>15</samples>
+          <resolution>1</resolution>
+          <min_angle>-3.14</min_angle>
+          <max_angle>3.14</max_angle>
+        </vertical> 
       </scan>
       <range>
         <min>0.5</min>
@@ -310,6 +316,8 @@
       </noise>
     </ray>
   </sensor>
+  
+  
 </gazebo>
 <gazebo>
     <plugin name="wheel_drive_controller" filename="libgazebo_ros_diff_drive.so">
@@ -454,3 +462,31 @@
 
 
 </robot>
+<!-- <sensor name="lidar" type="ray">
+    <visualize>true</visualize>
+    <update_rate>2.0</update_rate>
+    <plugin filename="libgazebo_ros_ray_sensor.so" name="gazebo_lidar">    
+      <output_type>sensor_msgs/LaserScan</output_type>
+      <frame_name>lidar</frame_name>
+    </plugin>
+    <ray>
+      <scan>
+        <horizontal>
+          <samples>120</samples>
+          <resolution>1</resolution>
+          <min_angle>-3.14</min_angle>
+          <max_angle>3.14</max_angle>
+        </horizontal>
+      </scan>
+      <range>
+        <min>0.5</min>
+        <max>15.0</max>
+        <resolution>0.015</resolution>
+      </range>
+      <noise>
+        <type>gaussian</type>
+        <mean>0.0</mean>
+        <stddev>0.01</stddev>
+      </noise>
+    </ray>
+  </sensor> -->

@@ -235,8 +235,8 @@ def generate_launch_description():
         gzclient_cmd,
         urdf_spawn_node,
         start_robot_localization_cmd,
-        start_ros2_navigation_cmd,
-        start_rviz_cmd
+        # start_ros2_navigation_cmd,
+        # start_rviz_cmd
         
        
         
